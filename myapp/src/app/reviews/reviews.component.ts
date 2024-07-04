@@ -1,16 +1,16 @@
-import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-perfil',
+  selector: 'app-reviews',
   standalone: true,
   imports: [
     CommonModule,
     RouterModule],
-  templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.css'
+  templateUrl: './reviews.component.html',
+  styleUrl: './reviews.component.css'
 })
-export class PerfilComponent {
+export class ReviewsComponent {
 
 }

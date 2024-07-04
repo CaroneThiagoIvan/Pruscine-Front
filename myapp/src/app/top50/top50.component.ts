@@ -3,14 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-perfil',
+  selector: 'app-top50',
   standalone: true,
   imports: [
     CommonModule,
-    RouterModule],
-  templateUrl: './perfil.component.html',
-  styleUrl: './perfil.component.css'
+    RouterModule
+  ],
+  templateUrl: './top50.component.html',
+  styleUrl: './top50.component.css'
 })
-export class PerfilComponent {
+export class Top50Component {
 
 }
