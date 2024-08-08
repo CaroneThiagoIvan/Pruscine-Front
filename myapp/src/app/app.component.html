@@ -1,10 +1,44 @@
-<div>
-  <p>Logo</p>
+<header>
+  <div class="logo">
+    <img src="../assets/img/descarga.png" alt="Logo de Mi Página de Películas">
+  </div>
+  <nav>
+      <ul>
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Explorar</a></li>
+          <li><a href="#">Mi Perfil</a></li>
+      </ul>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+      <h1>Bienvenido a Mi Página de Películas</h1>
+      <input type="text" placeholder="Buscar películas...">
+  </section>
+  <section class="content">
+      <div class="movie-card">
+          <img src="https://via.placeholder.com/200x300" alt="Película 1">
+          <h2>Película 1</h2>
+          <p>Descripción breve de la película 1.</p>
+      </div>
+      <div class="movie-card">
+          <img src="https://via.placeholder.com/200x300" alt="Película 2">
+          <h2>Película 2</h2>
+          <p>Descripción breve de la película 2.</p>
+      </div>
+      <!-- Agrega más tarjetas de películas según sea necesario -->
+  </section>
+</main>
+<footer>
+  <p>&copy; 2024 Mi Página de Películas</p>
+</footer>
+
+<nav>
   <ul>
-    <a routerLink="/">Inicio</a>
-    <a routerLink="/top50">Top 50</a>
-    <a routerLink="/reviews">Reseñar</a>
-    <a routerLink="/perfil">Perfil</a>
+    <li><a routerLink="/">Inicio</a></li>
+    <li><a routerLink="/top50">Top 50</a></li>
+    <li><a routerLink="/reviews">Reseñar</a></li>
+    <li><a routerLink="/perfil">Perfil</a></li>
   </ul>
-</div>
+</nav>
 <router-outlet></router-outlet>
