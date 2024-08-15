@@ -2,12 +2,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
+    background-color: #000000;
     color: #333;
 }
 
-header{
-    background-color: #333;
+nav{
+    background-color: rgb(255, 207, 48);
     color:#fff;
     padding: 20px;
     display: flex;
@@ -15,20 +15,33 @@ header{
     align-items: center;
 }
 
-header .logo{
-    font-size: 24px;
-    font-weight: bold;
+.logo{
+    width: 20%;
+    height: 20%;
 }
 
-nav {
-    margin-left: auto;
+.navbar-menu {
+    display: flex;
+    justify-content: space-between;
 }
 
-nav a {
-    color: #fff;
-    margin: 0 15px;
+nav div ul {
+    display: flex;
+}
+
+nav div ul li {
+    list-style: none;
+}
+
+nav div ul li a {
+    font-weight: 700;
     text-decoration: none;
-    font-size: 18px;
+    padding: 0px 20px;
+    color: #333;
+}
+
+nav div ul li a:hover {
+    color: #ffffff;
 }
 
 .container {
@@ -45,3 +58,7 @@ rgba(0, 0, 0, 0.1);
     margin-bottom: 20px;
 }
 
+.li{
+    font-size: 4px;
+    margin-bottom: 20px;
+}

@@ -1,44 +1,23 @@
-<header>
-  <div class="logo">
-    <img src="../assets/img/descarga.png" alt="Logo de Mi Página de Películas">
-  </div>
-  <nav>
-      <ul>
-          <li><a href="#">Inicio</a></li>
-          <li><a href="#">Explorar</a></li>
-          <li><a href="#">Mi Perfil</a></li>
-      </ul>
-  </nav>
-</header>
-<main>
-  <section class="hero">
-      <h1>Bienvenido a Mi Página de Películas</h1>
-      <input type="text" placeholder="Buscar películas...">
-  </section>
-  <section class="content">
-      <div class="movie-card">
-          <img src="https://via.placeholder.com/200x300" alt="Película 1">
-          <h2>Película 1</h2>
-          <p>Descripción breve de la película 1.</p>
-      </div>
-      <div class="movie-card">
-          <img src="https://via.placeholder.com/200x300" alt="Película 2">
-          <h2>Película 2</h2>
-          <p>Descripción breve de la película 2.</p>
-      </div>
-      <!-- Agrega más tarjetas de películas según sea necesario -->
-  </section>
-</main>
-<footer>
-  <p>&copy; 2024 Mi Página de Películas</p>
-</footer>
-
+<head>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
 <nav>
-  <ul>
-    <li><a routerLink="/">Inicio</a></li>
-    <li><a routerLink="/top50">Top 50</a></li>
-    <li><a routerLink="/reviews">Reseñar</a></li>
-    <li><a routerLink="/perfil">Perfil</a></li>
-  </ul>
+  <div>
+    <a href="/">
+      <img src="/assets/logo.png" class="logo">
+    </a>
+  </div>
+  
+  <div class="navbar-menu">
+      <ul>
+          <li><a href="/reviews">Reseñar</a></li>
+          <li><a href="/top50">Explorar</a></li>
+          <li><a href="/perfil/1">Mi Perfil</a></li>
+          <li><a href="/ingreso">Ingresar</a></li>
+      </ul>
+    </div>
 </nav>
+
 <router-outlet></router-outlet>
