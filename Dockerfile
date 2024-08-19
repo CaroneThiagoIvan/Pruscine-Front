@@ -1,21 +1,10 @@
-FROM node:latest AS builder
-
+FROM node:latest AS build
 WORKDIR /app
-
-COPY ./myapp/package*.json ./
-
-RUN npm install
-
-COPY ./myapp .
-
+COPY . .
+RUN npm ci
 RUN npm run build
 
 FROM nginx:alpine
-
-COPY nginx.conf /etc/nginx/nginx.conf
-
-COPY --from=builder /myapp/dist /usr/share/nginx/html
-
+ADD ./default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /myapp/dist /var/www/app/
 EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]
