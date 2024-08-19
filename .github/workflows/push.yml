@@ -9,11 +9,11 @@ on:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: ${{ github.repository }}
+  IMAGE_NAME: ${{github.REPOSITORY}}
 
 jobs:
-  build:
-    name: Build and Push Docker Image
+
+  build:  
     runs-on: ubuntu-latest
     permissions: write-all
 
@@ -25,14 +25,15 @@ jobs:
         uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.GITHUB_ACTOR }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          username: ${{ secrets.ACTOR }}
+          password: ${{ secrets.PAT }}
 
       - name: Extract metadata
         id: meta
         uses: docker/metadata-action@v2
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
 
       - name: Build and push Docker image
         id: push
@@ -41,4 +42,4 @@ jobs:
           context: .
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          labels: ${{ steps.meta.outputs.labels }} 
