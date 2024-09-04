@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth.services';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Validators } from '@angular/forms';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule } from '@angular/router';
 import { NgIf } from '@angular/common';
 import { Router } from '@angular/router';
 import { FormControl } from '@angular/forms';
@@ -12,7 +12,7 @@ import { inject } from '@angular/core';
 @Component({
   selector: 'app-ingreso',
   standalone: true,
-  imports: [RouterLink, NgIf, FormsModule, ReactiveFormsModule],
+  imports: [RouterLink, NgIf, FormsModule, ReactiveFormsModule, RouterModule],
   templateUrl: './ingreso.component.html',
   styleUrl: './ingreso.component.css'
 })

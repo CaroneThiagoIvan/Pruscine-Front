@@ -9,13 +9,12 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
-
 export class AuthService {
-    token: string = '';
+  token: string = '';
 
   readonly httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type':  'application/json',
+      'Content-Type': 'application/json',
       'Accept': 'application/json'
     })
   };
@@ -24,15 +23,18 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  getData(){
-    const token = window.localStorage.getItem('token');
-    if(token){
-      const data = atob(token.split('.')[1]);
-      console.log(data);
-      return JSON.parse(data).data;
-    } else {
-      return null;
+  getData() {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const token = localStorage.getItem('token');
+      if (token) {
+        const data = atob(token.split('.')[1]);
+        console.log(data);
+        return JSON.parse(data).data;
+      } else {
+        return null;
+      }
     }
+    return null;
   }
 
   logUser(usuario: any): Observable<any> {
@@ -47,9 +49,10 @@ export class AuthService {
     return false;
   }
 
-
-  logout(){
-    window.localStorage.removeItem('token');
+  logout() {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      localStorage.removeItem('token');
+    }
     this.router.navigate(['/']);
   }
 }
