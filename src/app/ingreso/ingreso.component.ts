@@ -30,11 +30,10 @@ export class IngresoComponent {
   })
 
   authUser(formData: any){
+    console.log(formData);
     const body ={
-      'nombre': formData.nombre,
-      'email': formData.mail,
+      'email': formData.email,
       'contrasenia': formData.contrasenia,
-      'fechaNacimiento': formData.fechaNacimiento
   }
 
     this.service.logUser(body).subscribe();

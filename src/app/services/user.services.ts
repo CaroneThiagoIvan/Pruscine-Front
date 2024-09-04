@@ -22,6 +22,10 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
+  getOneUsuario(id: number): Observable<any> {
+    return this.http.get(`${this.BASE_URL}` + `/${id}`, this.httpOptions);
+  }
+
   getUsuarios(): Observable<any> {
     return this.http.get(`${this.BASE_URL}`, this.httpOptions);
   }
