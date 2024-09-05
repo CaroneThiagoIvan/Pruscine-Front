@@ -43,6 +43,7 @@ export class AuthService {
   }
 
   loggedIn(): boolean {
+
     if (typeof window !== 'undefined' && window.localStorage) {
       return !!localStorage.getItem('token');
     }

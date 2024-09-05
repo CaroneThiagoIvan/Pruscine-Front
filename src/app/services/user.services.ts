@@ -14,7 +14,7 @@ export class UserService {
   readonly httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Accept': 'application/json'
+      'Accept': 'application/json',
     })
   };
 
@@ -36,10 +36,17 @@ export class UserService {
   }
 
   updateUsuario(usuario: IUser): Observable<void> {
-    return this.http.put<void>(`${this.BASE_URL}/${usuario.idUsuario}`, JSON.stringify(usuario), this.httpOptions);
+    const httpoptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json',
+        'Accept': 'application/json',
+        'authorization': localStorage.getItem('token')!
+      })
+    };
+    return this.http.put<void>(`${this.BASE_URL}/${usuario.idusuario}`, JSON.stringify(usuario), httpoptions);
   }
 
   deleteUsuario(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.BASE_URL}/delete/${id}`, this.httpOptions);
+    return this.http.delete<void>(`${this.BASE_URL}/${id}`, this.httpOptions);
   }
 }

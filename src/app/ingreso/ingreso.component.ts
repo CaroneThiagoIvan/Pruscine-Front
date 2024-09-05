@@ -36,7 +36,9 @@ export class IngresoComponent {
       'contrasenia': formData.contrasenia,
   }
 
-    this.service.logUser(body).subscribe();
+  this.service.logUser(body).subscribe((res: any) => {
+    localStorage.setItem('token', res.token); 
+  });
   }
 
 login(){
@@ -46,32 +48,4 @@ login(){
   this.authUser(formData);
   this.router.navigate(['/']);
 }
-/*
-  service: AuthService;
-  formLog: FormGroup;
-  
-  constructor(private AuthService: AuthService, private formBuilder: FormBuilder, private router: Router){
-    this.service = AuthService;
-    this.formLog = this.formBuilder.group({
-      mail: ['', [Validators.required, Validators.email]],
-      contra: ['', Validators.required]
-    });
-  }
-
-  login(){
-    if (this.formLog.valid) {
-      const { email, password } = this.formLog.value;
-      console.log(email, password);
-    }
-    else {
-      console.log('Error en formulario');
-      this.formLog.markAllAsTouched();
-    }
-    
-    this.service.logUser(this.formLog.get('mail')?.value, this.formLog.get('password')?.value).subscribe((res: any) => {
-      localStorage.setItem('token', res.token); 
-      this.router.navigateByUrl("/");
-    });
-  }
-  */
 }

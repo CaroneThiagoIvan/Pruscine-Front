@@ -30,19 +30,21 @@ export class PerfilComponent implements OnInit {
     this.usuario = {} as IUser;
 
     this.formulario = new FormGroup({
-      nombre: new FormControl('', Validators.required),
-      apellido: new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      contrasenia: new FormControl('', Validators.required),
-      direccion: new FormControl('', Validators.required)
+      nombre: new FormControl(this.usuario.nombre, Validators.required),
+      email: new FormControl(this.usuario.email, [Validators.required, Validators.email]),
+      contrasenia: new FormControl(this.usuario.contrasenia, Validators.required),
+      fechaNacimiento: new FormControl(this.usuario.fechaNacimiento, Validators.required)
     });
   }
 
   ngOnInit(): void {
 
     const id = this.authService.getData();
-    this.userService.getOneUsuario(id).subscribe((usuario: IUser) => {
-      this.usuario = usuario;
+    console.log(id);
+    this.userService.getOneUsuario(id).subscribe((data: IUser) => {
+      console.log(data);
+      this.usuario = data;
+      console.log(this.usuario.idusuario);
     });
 
 
@@ -61,7 +63,8 @@ export class PerfilComponent implements OnInit {
   }
 
   eliminarPerfil(): void {
-    this.userService.deleteUsuario(this.usuario.idUsuario).subscribe(() => {
+    console.log(this.usuario.idusuario);
+    this.userService.deleteUsuario(this.usuario.idusuario).subscribe(() => {
       console.log('Perfil eliminado con éxito');
     });
     this.authService.logout();
@@ -80,12 +83,13 @@ export class PerfilComponent implements OnInit {
   guardar(): void {
     if (this.formulario) {
       const usuarioActualizado: IUser = {
-        idUsuario: this.usuario.idUsuario,
+        idusuario: this.usuario.idusuario,
         nombre: this.formulario.get('nombre')?.value,
         email: this.formulario.get('email')?.value,
         contrasenia: this.formulario.get('contrasenia')?.value,
         fechaNacimiento: this.formulario.get('fechaNacimiento')?.value,
       };
+      console.log(usuarioActualizado);
       this.userService.updateUsuario(usuarioActualizado).subscribe(() => {
         console.log('Perfil actualizado con éxito');
         this.modificar = false;

@@ -1,5 +1,5 @@
 export interface IUser {
-    idUsuario: number;
+    idusuario: number;
     nombre: string;
     email: string;
     contrasenia: string;
@@ -7,14 +7,14 @@ export interface IUser {
 }
 
 function newUser(
-    idUsuario: number,
+    idusuario: number,
     nombre: string,
     email: string,
     contrasenia: string,
     fechaNacimiento: Date
 ): IUser {
     return {
-        idUsuario: (idUsuario ?? 0),
+        idusuario: (idusuario ?? 0),
         nombre: (nombre ?? ''),
         email: (email ?? ''),
         contrasenia: (contrasenia ?? ''),
